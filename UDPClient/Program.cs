@@ -7,7 +7,6 @@ Console.WriteLine("UDP-клиент запущен...");
 
 for (int i = 1; ; i++)
 {
-    // отправляемые данные
     string message = i.ToString();
     // преобразуем в массив байтов
     byte[] data = Encoding.UTF8.GetBytes(message);
@@ -18,7 +17,6 @@ for (int i = 1; ; i++)
 
     // получаем данные
     var result = await udpClient.ReceiveAsync();
-    // предположим, что отправлена строка, преобразуем байты в строку
     var resMessage = Encoding.UTF8.GetString(result.Buffer);
 
     Console.WriteLine($"Получено {result.Buffer.Length} байт");
